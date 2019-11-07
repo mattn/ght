@@ -30,12 +30,12 @@ func main() {
 		os.Exit(1)
 	}
 
-	doc.Find(".repo-list-item").Each(func(_ int, s *goquery.Selection) {
-		if href, ok := s.Find(".repo-list-name a").First().Attr("href"); ok {
+	doc.Find("article").Each(func(_ int, s *goquery.Selection) {
+		if href, ok := s.Find("h1 a").First().Attr("href"); ok {
 			if strings.HasPrefix(href, "/") {
 				href = "https://github.com" + href
 			}
-			desc := strings.TrimSpace(s.Find(".repo-list-description").First().Text())
+			desc := strings.TrimSpace(s.Find("p").First().Text())
 			desc = runewidth.Wrap(desc, 76)
 			desc = "  " + strings.Replace(desc, "\n", "\n  ", -1)
 
