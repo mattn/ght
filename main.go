@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	ct "github.com/daviddengcn/go-colortext"
+	"github.com/daviddengcn/go-colortext"
 	"github.com/mattn/go-runewidth"
 )
 
